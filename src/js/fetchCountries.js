@@ -1,4 +1,6 @@
 const countries = document.querySelector('.countries')
+import template from '../template/template.hbs'
+import listTemplate from '../template/listCountries.hbs'
 
 let baseUrl = `https://restcountries.eu/rest/v2/name/`
 
