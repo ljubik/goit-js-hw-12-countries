@@ -2,6 +2,9 @@ const countries = document.querySelector('.countries')
 import template from '../template/template.hbs'
 import listTemplate from '../template/listCountries.hbs'
 import { error } from "@pnotify/core";
+import "@pnotify/core/dist/PNotify.css";
+import "@pnotify/core/dist/BrightTheme.css";
+
 let baseUrl = `https://restcountries.eu/rest/v2/name/`
 
 function createItem(temp, data, place){
@@ -19,7 +22,7 @@ export default function fetchCountries(searchQuery){
         title: "Країну не знайдено",
         text:
           "Країну не знайдено",
-          delay: 2000
+          delay: 4000
       })
     }else {
       return res.json()
@@ -32,7 +35,7 @@ export default function fetchCountries(searchQuery){
         title: "Попередження",
         text:
         "Знайдено забагато збігів. Введіть більш конкретний запит!",
-        delay: 2000
+        delay: 4000
       })
     }else if(countriesList.length >= 2 && countriesList.length <= 10){
       createItem(listTemplate, countriesList, countries)
