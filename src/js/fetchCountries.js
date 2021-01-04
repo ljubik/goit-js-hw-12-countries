@@ -1,7 +1,7 @@
 const countries = document.querySelector('.countries')
 import template from '../template/template.hbs'
 import listTemplate from '../template/listCountries.hbs'
-
+import { error } from "@pnotify/core";
 let baseUrl = `https://restcountries.eu/rest/v2/name/`
 
 function createItem(temp, data, place){
