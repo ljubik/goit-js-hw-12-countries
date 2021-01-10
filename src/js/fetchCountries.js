@@ -16,7 +16,9 @@ export default function fetchCountries(searchQuery){
   countries.innerHTML = ''
   let url = `${baseUrl}${searchQuery}`
   return fetch(url)
-  .then(res=>{console.log(res)
+    .then(res => {
+      console.log(res)
+   
     if(res.status > 200){
       error({
         title: "Країну не знайдено",
@@ -24,7 +26,8 @@ export default function fetchCountries(searchQuery){
           "Країну не знайдено",
           delay: 4000
       })
-    }else {
+    }
+    else {
       return res.json()
     }
   })
@@ -39,6 +42,9 @@ export default function fetchCountries(searchQuery){
       })
     }else if(countriesList.length >= 2 && countriesList.length <= 10){
       createItem(listTemplate, countriesList, countries)
+    }
+    else if(countriesList.length === null){
+      createItem(countries.innerHTML = '')
     }
     else{
       createItem(template, countriesList, countries)
